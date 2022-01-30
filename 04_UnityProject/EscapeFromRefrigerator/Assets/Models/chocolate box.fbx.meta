@@ -3,7 +3,12 @@ guid: 6befa644aef73904fb691305f4c194a8
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: choco
+    second: {fileID: 2800000, guid: b704c9581dce8b54f948967e22fc9480, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

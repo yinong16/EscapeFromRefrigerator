@@ -29,6 +29,9 @@ public class DoorManager : MonoBehaviour
     public GameObject freezeText;
     public GameObject runText;
 
+    public GameObject[] lightsInside;
+    public GameObject[] lightsOutside;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,7 @@ public class DoorManager : MonoBehaviour
         Timmer();
         RandomOpen();
         OpenAndClose();
+        LightChanger();
     }
     void Timmer()
     {
@@ -191,9 +195,22 @@ public class DoorManager : MonoBehaviour
         {
             freezeText.SetActive(false);
             loseText.SetActive(true);
+            FindObjectOfType<WinDetector>().lose = true;
             Debug.Log("You Lose!");
             Destroy(FindObjectOfType<CowManager>());
             Destroy(this);
+        }
+    }
+
+    void LightChanger()
+    {
+        foreach (GameObject go in lightsInside)
+        {
+            go.SetActive(isStatic);
+        }
+        foreach (GameObject go in lightsOutside)
+        {
+            go.SetActive(!isStatic);
         }
     }
 }
